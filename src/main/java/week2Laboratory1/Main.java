@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        averageValue();
+        isPrime();
     }
 
     /* Function finds and prints the minimum element in an array: defines first element
@@ -45,8 +45,33 @@ public class Main {
 
     }
 
+    /* Function checks whether the number is prime or not. It checks each iteration
+    starting from 2 until number itself is this number divides to the iteration.
+    If it is true loop breaks, otherwise this number is prime. Also, we can consider only half of number.
+    Because, if the first half isn't composite, the other half too and vice versa.
+    Time complexity: 0(n)
+    */
+    public static void isPrime() {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        boolean isPrime = true;
+        for (int i = 2; i < n/2; i++) {
+            if (n % i == 0) {
+                isPrime = false;
+                break;
+            }
+        }
+        if (isPrime) {
+            System.out.println("Prime");
+        } else {
+            System.out.println("Composite");
+        }
+
+    }
 
 }
+
+
 
 
 
