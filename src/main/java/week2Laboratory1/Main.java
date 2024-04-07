@@ -126,6 +126,32 @@ public class Main {
         }
     }
 
+    /* The reversed function takes user input to determine the size of the array
+     and then calls the reversedPrivate function to print the elements of the array in reverse order.
+    The reversedPrivate function recursively prints the elements of the array in reverse order until it
+     reaches the base case where n is less than or equal to 1.
+     Time complexity: O(n)
+    */
+    public static void reversed() {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+        reversedPrivate(n, arr);
+    }
+    private static void reversedPrivate(int n, int[] arr) {
+        if (n <= 0) {
+            return;
+        }
+        System.out.print(arr[n - 1] + " ");
+        reversedPrivate(n - 1, arr);
+    }
+
+    /* */
+
+
 }
 
 
