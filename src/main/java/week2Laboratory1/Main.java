@@ -87,6 +87,25 @@ public class Main {
         }
     }
 
+    /* Function finds n-th elements in Fibonacci sequence by giving number n and this function uses recursion.
+    Time complexity: 0(2^n)
+    */
+    public static void fibonacci() {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.println(fibonacciPrivate(n));
+    }
+    private static int fibonacciPrivate(int n) {
+        // base case: the first elements of Fibonacci sequence is 0,1
+        if (n == 0)
+            return 0;
+        else if (n == 1)
+            return 1;
+        else
+            // recursion: addition of previous element and previous element of the previous
+            return fibonacciPrivate(n - 1) + fibonacciPrivate(n - 2);
+    }
+
     /* */
 
 }
