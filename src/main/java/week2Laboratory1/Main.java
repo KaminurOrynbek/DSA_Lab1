@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        isPrime();
+
     }
 
     /* Function finds and prints the minimum element in an array: defines first element
@@ -26,7 +26,7 @@ public class Main {
         }
 
     /* Function finds and prints average of elements in an array: defines sum as 0
-    and each iteration adds each element of array and in the last divides sum to n.
+    and adds each iteration to each element of array and in the last divides sum to n.
     Time complexity: O(n)
     */
     public static void averageValue() {
@@ -66,8 +66,28 @@ public class Main {
         } else {
             System.out.println("Composite");
         }
-
     }
+
+    /* Function uses recursion to find a factorial of given number by multiplying number and subtracting 1 each time
+    Time complexity: 0(n)
+     */
+    public static void factorial() {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.println(factorialPrivate(n));
+    }
+    // by this private function we can avoid calling parameterized function above when we call it in main method
+    private static int factorialPrivate(int n) {
+        // Base case: factorial of 0 or 1 is 1
+        if (n <= 1) {
+            return 1;
+        } else {
+            // Recursive call to compute factorial of n-1
+            return n * factorialPrivate(n - 1);
+        }
+    }
+
+    /* */
 
 }
 
