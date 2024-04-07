@@ -95,6 +95,7 @@ public class Main {
         int n = sc.nextInt();
         System.out.println(fibonacciPrivate(n));
     }
+    // by this private function we can avoid calling parameterized function above when we call it in main method
     private static int fibonacciPrivate(int n) {
         // base case: the first elements of Fibonacci sequence is 0,1
         if (n == 0)
@@ -106,7 +107,24 @@ public class Main {
             return fibonacciPrivate(n - 1) + fibonacciPrivate(n - 2);
     }
 
-    /* */
+    /* Function returns a^n by giving a and power n using recursion
+    Time complexity: 0(n)
+    */
+    public static void power() {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int n = sc.nextInt();
+        System.out.println(powerPrivate(a,n));
+    }
+    // by this private function we can avoid calling parameterized function above when we call it in main method
+    private static int powerPrivate(int a, int n) {
+        // base case
+        if (n == 0) {
+            return 1; // Any number raised to the power of 0 is 1
+        } else {
+            return a * powerPrivate(a, n - 1); // Recursively multiply 'a' by itself 'n' times
+        }
+    }
 
 }
 
