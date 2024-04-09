@@ -10,27 +10,49 @@ public class Main {
             int task = sc.nextInt();
             switch (task) {
                 case 0:
+                    System.out.println("You exited successfully.");
                     System.exit(0);
                 case 1:
+                    System.out.println("Function finds and prints the minimum element in an array");
                     duration(Main::minFinder);
+                    break;
                 case 2:
+                    System.out.println("Function finds and prints average of elements in an array");
                     duration(Main::averageValue);
+                    break;
                 case 3:
+                    System.out.println("Function checks whether the number is prime or not.");
                     duration(Main::isPrime);
+                    break;
                 case 4:
+                    System.out.println("Function finds a factorial of given number");
                     duration(Main::factorial);
+                    break;
                 case 5:
+                    System.out.println("Function finds n-th elements in Fibonacci sequence by giving number n");
                     duration(Main::fibonacci);
+                    break;
                 case 6:
+                    System.out.println("Function returns a^n by giving a and power n");
                     duration(Main::power);
+                    break;
                 case 7:
+                    System.out.println("Function returns reversed version of your array");
                     duration(Main::reversed);
+                    break;
                 case 8:
+                    System.out.println("Checks the given s string contains only number and prints Yes otherwise No");
                     duration(Main::CheckingDigits);
+                    break;
                 case 9:
+                    System.out.println("Recursively calculates the binomial coefficient C(n, k).");
                     duration(Main::binomialCoeff);
+                    break;
                 case 10:
+                    System.out.println("The function findGCD calculates the GCD");
                     duration(Main::findGCD);
+                default:
+                    System.out.println("This task doesn't exist. Try again");
             }
 
         }
@@ -43,8 +65,10 @@ public class Main {
      */
     public static void minFinder() {
         Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the size of array");
         int n = sc.nextInt();
         int[] arr = new int[n];
+        System.out.println("Enter each element of your array");
         for (int i = 0; i < n; i++) {
             arr[i] = sc.nextInt();
         }
@@ -53,7 +77,7 @@ public class Main {
             if (arr[i] < min)
                 min = arr[i];
             }
-        System.out.println(min);
+        System.out.println("Minimum element: " + min);
         }
 
     /* Function finds and prints average of elements in an array: defines sum as 0
@@ -62,8 +86,10 @@ public class Main {
     */
     public static void averageValue() {
         Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the size of array");
         int n = sc.nextInt();
         Double[] arr = new Double[n];
+        System.out.println("Enter each element of your array");
         for (int i = 0; i < n; i++) {
             arr[i] = sc.nextDouble();
         }
@@ -72,7 +98,7 @@ public class Main {
             sum += arr[i];
         }
         double average = sum / n;
-        System.out.println(average);
+        System.out.println("The average value: " + average);
 
     }
 
@@ -84,9 +110,10 @@ public class Main {
     */
     public static void isPrime() {
         Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the number");
         int n = sc.nextInt();
         boolean isPrime = true;
-        for (int i = 2; i < n/2; i++) {
+        for (int i = 2; i <= n/2; i++) {
             if (n % i == 0) {
                 isPrime = false;
                 break;
@@ -104,6 +131,7 @@ public class Main {
      */
     public static void factorial() {
         Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the number");
         int n = sc.nextInt();
         System.out.println(factorialPrivate(n));
     }
@@ -123,6 +151,7 @@ public class Main {
     */
     public static void fibonacci() {
         Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the number");
         int n = sc.nextInt();
         System.out.println(fibonacciPrivate(n));
     }
@@ -143,7 +172,9 @@ public class Main {
     */
     public static void power() {
         Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a:");
         int a = sc.nextInt();
+        System.out.println("Enter n:");
         int n = sc.nextInt();
         System.out.println(powerPrivate(a,n));
     }
@@ -165,8 +196,10 @@ public class Main {
     */
     public static void reversed() {
         Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the size of array");
         int n = sc.nextInt();
         int[] arr = new int[n];
+        System.out.println("Enter each element of your array");
         for (int i = 0; i < n; i++) {
             arr[i] = sc.nextInt();
         }
@@ -185,8 +218,8 @@ public class Main {
     */
     public static void CheckingDigits(){
         Scanner sc =new Scanner(System.in);
+        System.out.println("Enter the string");
         String s = sc.nextLine();
-
         System.out.println(checkingDigitsPrivate(s,0));
 
     }
@@ -208,7 +241,9 @@ public class Main {
      */
     public static void binomialCoeff() {
         Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the n");
         int n = sc.nextInt();
+        System.out.println("Enter the k");
         int k = sc.nextInt();
         System.out.println(binomialCoeffPrivate(n, k));
     }
@@ -226,7 +261,9 @@ public class Main {
      */
     public static void findGCD() {
         Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the a");
         int a = sc.nextInt();
+        System.out.println("Enter the b");
         int b = sc.nextInt();
         System.out.println(findGCDPrivate(a, b));
     }
