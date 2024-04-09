@@ -149,7 +149,29 @@ public class Main {
         reversedPrivate(n - 1, arr);
     }
 
-    /* */
+    /* Checks the given s string contains only number and prints Yes otherwise No
+    Time complexity: O(n)
+    */
+    public static void CallingCheckingDigits(){
+        Scanner sc =new Scanner(System.in);
+        String s = sc.nextLine();
+
+        System.out.println(checkingDigits(s,0));
+
+    }
+    private static boolean checkingDigits(String s, int index ){
+        char ch = s.charAt(index);
+        if(Character.isAlphabetic(ch)) {
+            return false;
+        }
+        else if (index==s.length()-1){
+            return true;
+        }
+
+        return checkingDigits(s, index+1);
+    }
+
+
 
 
 }
