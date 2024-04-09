@@ -3,6 +3,37 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        while (true) {
+            System.out.println("Which do you want to run from 1 to 10? Choose 0 to exit. ");
+            System.out.println("Enter your choice: ");
+            int task = sc.nextInt();
+            switch (task) {
+                case 0:
+                    System.exit(0);
+                case 1:
+                    duration(Main::minFinder);
+                case 2:
+                    duration(Main::averageValue);
+                case 3:
+                    duration(Main::isPrime);
+                case 4:
+                    duration(Main::factorial);
+                case 5:
+                    duration(Main::fibonacci);
+                case 6:
+                    duration(Main::power);
+                case 7:
+                    duration(Main::reversed);
+                case 8:
+                    duration(Main::CheckingDigits);
+                case 9:
+                    duration(Main::binomialCoeff);
+                case 10:
+                    duration(Main::findGCD);
+            }
+
+        }
 
     }
 
@@ -152,14 +183,14 @@ public class Main {
     /* Checks the given s string contains only number and prints Yes otherwise No
     Time complexity: O(n)
     */
-    public static void CallingCheckingDigits(){
+    public static void CheckingDigits(){
         Scanner sc =new Scanner(System.in);
         String s = sc.nextLine();
 
-        System.out.println(checkingDigits(s,0));
+        System.out.println(checkingDigitsPrivate(s,0));
 
     }
-    private static boolean checkingDigits(String s, int index ){
+    private static boolean checkingDigitsPrivate(String s, int index ){
         char ch = s.charAt(index);
         if(Character.isAlphabetic(ch)) {
             return false;
@@ -168,12 +199,58 @@ public class Main {
             return true;
         }
 
-        return checkingDigits(s, index+1);
+        return checkingDigitsPrivate(s, index+1);
     }
 
+    /*
+    Recursively calculates the binomial coefficient C(n, k).
+    Time Complexity: O(2^n)
+     */
+    public static void binomialCoeff() {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int k = sc.nextInt();
+        System.out.println(binomialCoeffPrivate(n, k));
+    }
+    private static int binomialCoeffPrivate(int n, int k) {
+        if (k == 0 || k == n) {
+            return 1;
+        }
+        return binomialCoeffPrivate(n - 1, k - 1) + binomialCoeffPrivate(n - 1, k);
+    }
 
+    /*
+    The function findGCD calculates the Greatest Common Divisor
+    (GCD) of two numbers a and b using recursion based on the Euclidean Algorithm\
+    Time Complexity: O(log(n))
+     */
+    public static void findGCD() {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        System.out.println(findGCDPrivate(a, b));
+    }
+    public static int findGCDPrivate(int a, int b) {
+        // Base case
+        if (b == 0) {
+            return a;
+        } else {
+            // Recursive call
+            return findGCDPrivate(b, a % b);
+        }
+    }
 
-
+    /*
+    Calculates duration of execution
+     */
+    public static void duration(Runnable task) {
+        long startTime = System.nanoTime();
+        task.run();
+        long endTime = System.nanoTime();
+        long totalTimeNanos = endTime - startTime;
+        double totalTimeSeconds = totalTimeNanos / 1000000000.0; // from nanoseconds to seconds
+        System.out.println("Execution time: " + totalTimeSeconds + " seconds (" + totalTimeNanos + " nanoseconds)");
+    }
 }
 
 
